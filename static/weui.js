@@ -13,8 +13,9 @@
     weui.toast = function (_config) {
         config = deepClone(_config);
 
-        var html = '<div class="weui_mask_transparent"></div>' +
-            ' <div class="weui_toast">' +
+        var html =
+            '<div class="weui_mask_transparent"></div>' +
+            '<div class="weui_toast">' +
             '   <i class="weui_icon_toast"></i> ' +
             '   <p class="weui_toast_content">' +
                     config.text +
@@ -44,23 +45,24 @@
     weui.loadingToast = function (_config) {
         config = deepClone(_config);
 
-        var html = '<div class="weui_mask_transparent"></div>' +
-            '<div class="weui_toast">' +
-            '   <div class="weui_loading">' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_0"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_1"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_2"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_3"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_4"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_5"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_6"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_7"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_8"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_9"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_10"></div>' +
-            '       <div class="weui_loading_leaf weui_loading_leaf_11"></div>' +
-            '   </div>' +
-            '   <p class="weui_toast_content">' + config.text + '</p>' +
+        var html =
+            '<div class="weui_mask_transparent"></div>' +
+            '   <div class="weui_toast">' +
+            '       <div class="weui_loading">' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_0"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_1"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_2"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_3"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_4"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_5"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_6"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_7"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_8"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_9"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_10"></div>' +
+            '           <div class="weui_loading_leaf weui_loading_leaf_11"></div>' +
+            '       </div>' +
+            '       <p class="weui_toast_content">' + config.text + '</p>' +
             '</div>';
 
         var _loadingToast = doc.createElement('div');
@@ -79,7 +81,8 @@
     weui.alert = function (_config) {
         config = deepClone(_config);
 
-        var html = '<div class="weui_mask"></div>' +
+        var html =
+            '<div class="weui_mask"></div>' +
             '<div class="weui_dialog"> ' +
             '   <div class="weui_dialog_hd">' +
             '       <strong class="weui_dialog_title">' +
@@ -111,17 +114,22 @@
 
     weui.dialog = function (_config) {
         config=deepClone(_config)//title,desc,confirm,cancel
-        var html = '<div class="weui_mask"></div><div class="weui_dialog">' +
-                    '<div class="weui_dialog_hd">' +
-                    '<strong class="weui_dialog_title">'+
+        var html =
+            '<div class="weui_mask"></div>' +
+            '<div class="weui_dialog">' +
+            '   <div class="weui_dialog_hd">' +
+            '       <strong class="weui_dialog_title">'+
                         config.title +
-                    '</strong></div><div class="weui_dialog_bd">' +
+            '       </strong>' +
+            '   </div>' +
+            '   <div class="weui_dialog_bd">' +
                         config.desc +
-                    '</div>' +
-                    '<div class="weui_dialog_ft">' +
-                     '<a href="#" class="weui_btn_dialog default btn_cancel">取消</a>' +
-                     '<a href="#" class="weui_btn_dialog primary btn_confirm">确定</a></div>' +
-                    '</div>';
+            '   </div>' +
+            '   <div class="weui_dialog_ft">' +
+            '       <a href="#" class="weui_btn_dialog default btn_cancel">取消</a>' +
+            '       <a href="#" class="weui_btn_dialog primary btn_confirm">确定</a>' +
+            '   </div>' +
+            '</div>'
 
         var _dialog = doc.createElement('div');
         _dialog.className = 'weui_dialog_confirm';
@@ -152,16 +160,17 @@
             template += '<div class="weui_actionsheet_cell">' + i + '</div>';
 
         }
-        var html='<div class="weui_mask_transition" id="mask"></div>'+
-                        '<div class="weui_actionsheet" id="weui_actionsheet">'+
-                           '<div class="weui_actionsheet_menu">'+
-                                template+
-                            '</div>'+
-                            '<div class="weui_actionsheet_action">'+
-                                '<div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'
+        var html =
+            '<div class="weui_mask_transition" id="mask"></div>' +
+            '   <div class="weui_actionsheet" id="weui_actionsheet">' +
+            '       <div class="weui_actionsheet_menu">' +
+                        template +
+            '       </div>' +
+            '       <div class="weui_actionsheet_action">' +
+            '           <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>' +
+            '       </div>' +
+            '   </div>' +
+            '</div>';
 
         var _actionSheet=doc.createElement('div')
         _actionSheet.setAttribute('id','actionSheet_wrap')
