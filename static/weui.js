@@ -13,12 +13,19 @@
     weui.toast = function (_config) {
         config = deepClone(_config);
 
-        var html = '<div class="weui_mask_transparent"></div> <div class="weui_toast"> <i class="weui_icon_toast"></i> <p class="weui_toast_content">' + config.text + '</p> </div>';
+        var html = '<div class="weui_mask_transparent"></div>' +
+            ' <div class="weui_toast">' +
+            '   <i class="weui_icon_toast"></i> ' +
+            '   <p class="weui_toast_content">' +
+                    config.text +
+            '   </p>' +
+            '</div>';
+
         var _toast = doc.createElement('div');
+        _toast.innerHTML = html;
         _toast.setAttribute('id', 'toast');
         if (!doc.querySelector('#toast')) {
             doc.body.appendChild(_toast);
-            _toast.innerHTML = html
         }
 
         timer = setTimeout(function () {
@@ -29,10 +36,63 @@
 
     };
 
+    /**
+     *
+     * @param _config(text)
+     */
+
+    weui.loadingToast = function (_config) {
+        config = deepClone(_config);
+
+        var html = '<div class="weui_mask_transparent"></div>' +
+            '<div class="weui_toast">' +
+            '   <div class="weui_loading">' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_0"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_1"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_2"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_3"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_4"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_5"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_6"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_7"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_8"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_9"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_10"></div>' +
+            '       <div class="weui_loading_leaf weui_loading_leaf_11"></div>' +
+            '   </div>' +
+            '   <p class="weui_toast_content">' + config.text + '</p>' +
+            '</div>';
+
+        var _loadingToast = doc.createElement('div');
+        _loadingToast.innerHTML = html;
+        _loadingToast.setAttribute('id', 'loadingToast');
+        _loadingToast.className='weui_loading_toast'
+        if(!doc.querySelector('#loadingToast')){
+            doc.body.appendChild(_loadingToast);
+        }
+    };
+
+    /**
+     *
+     * @param _config
+     */
     weui.alert = function (_config) {
         config = deepClone(_config);
 
-        var html = '<div class="weui_mask"></div> <div class="weui_dialog"> <div class="weui_dialog_hd"><strong class="weui_dialog_title">' + config.title + '</strong></div> <div class="weui_dialog_bd">' + config.desc + '</div><div class="weui_dialog_ft"><a href="#" class="weui_btn_dialog primary">确定</a> </div></div>';
+        var html = '<div class="weui_mask"></div>' +
+            '<div class="weui_dialog"> ' +
+            '   <div class="weui_dialog_hd">' +
+            '       <strong class="weui_dialog_title">' +
+                        config.title +
+            '       </strong>' +
+            '   </div> ' +
+            '   <div class="weui_dialog_bd">' +
+                    config.desc +
+            '   </div>' +
+            '   <div class="weui_dialog_ft">' +
+            '       <a href="#" class="weui_btn_dialog primary">确定</a>' +
+            '   </div>' +
+            '</div>';
 
         var _alert = doc.createElement('div');
         _alert.className = 'weui_dialog_alert';
@@ -128,7 +188,9 @@
         var cancel_btn = doc.querySelector('#actionsheet_cancel');
         cancel_btn.addEventListener('click',function(){
             doc.body.removeChild(_actionSheet);
-            config.cancel();
+            if (config.cancel){
+                config.cancel();
+            }
         })
     };
     window.weui = window.weui || weui;
